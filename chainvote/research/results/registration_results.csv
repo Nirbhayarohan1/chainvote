@@ -1,0 +1,5 @@
+voters,bcrypt_cost,password_hashing_ms,commitment_generation_ms,total_ms,per_voter_ms,kind
+50,8,1179.437,53.813,1233.25,24.665,"simulated_no_db"
+100,8,2293.86,38.64,2332.5,23.325,"simulated_no_db"
+500,8,11550.886,217.491,11768.377,23.537,"simulated_no_db"
+1000,8,22930.172,333.837,23264.01,23.264,"simulated_no_db"

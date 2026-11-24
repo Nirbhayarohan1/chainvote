@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "timestamp": "2026-11-24T10:09:46.074Z",
+    "hardware": {
+      "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+      "cores": 1,
+      "ramGB": 3.9,
+      "platform": "linux x64",
+      "os": "6.18.44-fc-v819"
+    },
+    "software": {
+      "node": "v22.23.5",
+      "hardhat": "2.29.2",
+      "ethers": "6.17.0",
+      "solc": "0.8.24",
+      "merkletreejs": "0.6.0",
+      "openzeppelin": "5.6.1"
+    },
+    "config": {
+      "sizes": [
+        50,
+        100,
+        500,
+        1000
+      ],
+      "repetitionsPerMeasurement": 10,
+      "candidates": 5,
+      "chain": "Hardhat in-process EVM (automine, no network latency)"
+    }
+  },
+  "note": "End-to-end timings per election size. Registration here = commitment generation only; bcrypt hashing is in registration_results.csv. No MongoDB I/O is included.",
+  "endToEnd": [
+    {
+      "voters": 50,
+      "registration_commitments_ms": 11.224,
+      "merkle_build_and_publish_ms": 2.81,
+      "eligibility_verification_ms": 5.716,
+      "voting_ms": 92.811,
+      "close_election_ms": 1.244,
+      "result_calculation_ms": 1.087,
+      "total_ms": 136.431,
+      "eligible_verified": 50,
+      "votes_on_chain": 50
+    },
+    {
+      "voters": 100,
+      "registration_commitments_ms": 24.369,
+      "merkle_build_and_publish_ms": 4.698,
+      "eligibility_verification_ms": 15.377,
+      "voting_ms": 173.47,
+      "close_election_ms": 1.112,
+      "result_calculation_ms": 0.961,
+      "total_ms": 247.784,
+      "eligible_verified": 100,
+      "votes_on_chain": 100
+    },
+    {
+      "voters": 500,
+      "registration_commitments_ms": 106.229,
+      "merkle_build_and_publish_ms": 21.241,
+      "eligibility_verification_ms": 88.007,
+      "voting_ms": 942.103,
+      "close_election_ms": 1.05,
+      "result_calculation_ms": 0.713,
+      "total_ms": 1178.472,
+      "eligible_verified": 500,
+      "votes_on_chain": 500
+    },
+    {
+      "voters": 1000,
+      "registration_commitments_ms": 252.345,
+      "merkle_build_and_publish_ms": 40.984,
+      "eligibility_verification_ms": 219.144,
+      "voting_ms": 1925.024,
+      "close_election_ms": 3.579,
+      "result_calculation_ms": 1.1,
+      "total_ms": 2510.047,
+      "eligible_verified": 1000,
+      "votes_on_chain": 1000
+    }
+  ]
+}

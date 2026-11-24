@@ -1,0 +1,285 @@
+{
+  "meta": {
+    "timestamp": "2026-11-24T10:09:46.074Z",
+    "hardware": {
+      "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+      "cores": 1,
+      "ramGB": 3.9,
+      "platform": "linux x64",
+      "os": "6.18.44-fc-v819"
+    },
+    "software": {
+      "node": "v22.23.5",
+      "hardhat": "2.29.2",
+      "ethers": "6.17.0",
+      "solc": "0.8.24",
+      "merkletreejs": "0.6.0",
+      "openzeppelin": "5.6.1"
+    },
+    "config": {
+      "sizes": [
+        50,
+        100,
+        500,
+        1000
+      ],
+      "repetitionsPerMeasurement": 10,
+      "candidates": 5,
+      "chain": "Hardhat in-process EVM (automine, no network latency)"
+    }
+  },
+  "experiments": {
+    "1_merkle_generation": [
+      {
+        "experiment": "merkle_generation",
+        "voters": 50,
+        "repetitions": 10,
+        "mean_ms": 5.18,
+        "min_ms": 1.602,
+        "max_ms": 17.497,
+        "std_ms": 4.816,
+        "kind": "offchain"
+      },
+      {
+        "experiment": "merkle_generation",
+        "voters": 100,
+        "repetitions": 10,
+        "mean_ms": 3.936,
+        "min_ms": 2.91,
+        "max_ms": 7.134,
+        "std_ms": 1.167,
+        "kind": "offchain"
+      },
+      {
+        "experiment": "merkle_generation",
+        "voters": 500,
+        "repetitions": 10,
+        "mean_ms": 20.833,
+        "min_ms": 15.082,
+        "max_ms": 40.492,
+        "std_ms": 7.116,
+        "kind": "offchain"
+      },
+      {
+        "experiment": "merkle_generation",
+        "voters": 1000,
+        "repetitions": 10,
+        "mean_ms": 29.495,
+        "min_ms": 27.02,
+        "max_ms": 35.611,
+        "std_ms": 2.357,
+        "kind": "offchain"
+      }
+    ],
+    "2_merkle_proofs": [
+      {
+        "experiment": "merkle_proof",
+        "voters": 50,
+        "proofs": 50,
+        "gen_mean_ms": 0.0344,
+        "gen_max_ms": 0.2749,
+        "verify_mean_ms": 0.1474,
+        "verify_max_ms": 1.2077,
+        "valid_success_rate_pct": 100,
+        "invalid_total": 50,
+        "invalid_rejected": 50,
+        "invalid_rejection_rate_pct": 100,
+        "kind": "offchain"
+      },
+      {
+        "experiment": "merkle_proof",
+        "voters": 100,
+        "proofs": 100,
+        "gen_mean_ms": 0.0792,
+        "gen_max_ms": 4.7722,
+        "verify_mean_ms": 0.1291,
+        "verify_max_ms": 0.2582,
+        "valid_success_rate_pct": 100,
+        "invalid_total": 100,
+        "invalid_rejected": 100,
+        "invalid_rejection_rate_pct": 100,
+        "kind": "offchain"
+      },
+      {
+        "experiment": "merkle_proof",
+        "voters": 500,
+        "proofs": 500,
+        "gen_mean_ms": 0.0463,
+        "gen_max_ms": 3.3284,
+        "verify_mean_ms": 0.1631,
+        "verify_max_ms": 3.6322,
+        "valid_success_rate_pct": 100,
+        "invalid_total": 500,
+        "invalid_rejected": 500,
+        "invalid_rejection_rate_pct": 100,
+        "kind": "offchain"
+      },
+      {
+        "experiment": "merkle_proof",
+        "voters": 1000,
+        "proofs": 1000,
+        "gen_mean_ms": 0.0529,
+        "gen_max_ms": 4.1212,
+        "verify_mean_ms": 0.2234,
+        "verify_max_ms": 7.5579,
+        "valid_success_rate_pct": 100,
+        "invalid_total": 1000,
+        "invalid_rejected": 1000,
+        "invalid_rejection_rate_pct": 100,
+        "kind": "offchain"
+      },
+      {
+        "experiment": "onchain_proof_verification_view",
+        "voters": 1000,
+        "proofs": 100,
+        "verify_mean_ms": 1.106,
+        "valid_success_rate_pct": 100,
+        "invalid_total": 100,
+        "invalid_rejected": 100,
+        "invalid_rejection_rate_pct": 100,
+        "kind": "real_evm_call"
+      }
+    ],
+    "3_transactions": {
+      "voters": 100,
+      "successful": 100,
+      "failed": 0,
+      "gas": {
+        "mean": 75375,
+        "min": 72186,
+        "max": 108649
+      },
+      "submit_ms": {
+        "mean": 1.384,
+        "min": 1.101,
+        "max": 4.795
+      },
+      "confirm_ms": {
+        "mean": 1.632,
+        "min": 1.325,
+        "max": 5.04
+      },
+      "kind": "real_evm_tx"
+    },
+    "4_double_voting": {
+      "total_duplicate_attempts": 200,
+      "rejected": 200,
+      "unexpectedly_accepted": 0,
+      "revert_reasons": {
+        "NullifierAlreadyUsed": 200
+      },
+      "votes_on_chain_after": 100,
+      "expected_votes": 100
+    },
+    "5_scalability": [
+      {
+        "voters": 50,
+        "votes_attempted": 50,
+        "votes_succeeded": 50,
+        "votes_failed": 0,
+        "total_vote_time_ms": 92.811,
+        "throughput_tx_per_s": 538.729,
+        "mean_gas_per_vote": 75655,
+        "max_gas_per_vote": 107908,
+        "mean_confirm_ms": 1.821,
+        "tally_matches_successes": true,
+        "kind": "real_evm_tx_sequential"
+      },
+      {
+        "voters": 100,
+        "votes_attempted": 100,
+        "votes_succeeded": 100,
+        "votes_failed": 0,
+        "total_vote_time_ms": 173.47,
+        "throughput_tx_per_s": 576.469,
+        "mean_gas_per_vote": 75377,
+        "max_gas_per_vote": 108637,
+        "mean_confirm_ms": 1.696,
+        "tally_matches_successes": true,
+        "kind": "real_evm_tx_sequential"
+      },
+      {
+        "voters": 500,
+        "votes_attempted": 500,
+        "votes_succeeded": 500,
+        "votes_failed": 0,
+        "total_vote_time_ms": 942.103,
+        "throughput_tx_per_s": 530.728,
+        "mean_gas_per_vote": 76147,
+        "max_gas_per_vote": 110127,
+        "mean_confirm_ms": 1.83,
+        "tally_matches_successes": true,
+        "kind": "real_evm_tx_sequential"
+      },
+      {
+        "voters": 1000,
+        "votes_attempted": 1000,
+        "votes_succeeded": 1000,
+        "votes_failed": 0,
+        "total_vote_time_ms": 1925.024,
+        "throughput_tx_per_s": 519.474,
+        "mean_gas_per_vote": 76793,
+        "max_gas_per_vote": 110900,
+        "mean_confirm_ms": 1.857,
+        "tally_matches_successes": true,
+        "kind": "real_evm_tx_sequential"
+      }
+    ],
+    "6_end_to_end": [
+      {
+        "voters": 50,
+        "registration_commitments_ms": 11.224,
+        "merkle_build_and_publish_ms": 2.81,
+        "eligibility_verification_ms": 5.716,
+        "voting_ms": 92.811,
+        "close_election_ms": 1.244,
+        "result_calculation_ms": 1.087,
+        "total_ms": 136.431,
+        "eligible_verified": 50,
+        "votes_on_chain": 50
+      },
+      {
+        "voters": 100,
+        "registration_commitments_ms": 24.369,
+        "merkle_build_and_publish_ms": 4.698,
+        "eligibility_verification_ms": 15.377,
+        "voting_ms": 173.47,
+        "close_election_ms": 1.112,
+        "result_calculation_ms": 0.961,
+        "total_ms": 247.784,
+        "eligible_verified": 100,
+        "votes_on_chain": 100
+      },
+      {
+        "voters": 500,
+        "registration_commitments_ms": 106.229,
+        "merkle_build_and_publish_ms": 21.241,
+        "eligibility_verification_ms": 88.007,
+        "voting_ms": 942.103,
+        "close_election_ms": 1.05,
+        "result_calculation_ms": 0.713,
+        "total_ms": 1178.472,
+        "eligible_verified": 500,
+        "votes_on_chain": 500
+      },
+      {
+        "voters": 1000,
+        "registration_commitments_ms": 252.345,
+        "merkle_build_and_publish_ms": 40.984,
+        "eligibility_verification_ms": 219.144,
+        "voting_ms": 1925.024,
+        "close_election_ms": 3.579,
+        "result_calculation_ms": 1.1,
+        "total_ms": 2510.047,
+        "eligible_verified": 1000,
+        "votes_on_chain": 1000
+      }
+    ]
+  },
+  "limitations": [
+    "Hardhat in-process EVM has zero network latency and instant mining; real-network confirmation times will be far higher.",
+    "Transactions are sequential from a single relayer; concurrency/mempool behaviour is not measured.",
+    "MongoDB and HTTP overhead are not included.",
+    "Gas figures are for this contract on EVM cancun with optimizer runs=200."
+  ]
+}

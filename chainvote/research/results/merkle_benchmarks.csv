@@ -1,0 +1,10 @@
+experiment,voters,repetitions_or_proofs,mean_ms,min_ms,max_ms,std_ms,verify_mean_ms,valid_success_rate_pct,invalid_total,invalid_rejected,invalid_rejection_rate_pct,kind
+"merkle_generation",50,10,5.18,1.602,17.497,4.816,"","","","","","offchain"
+"merkle_generation",100,10,3.936,2.91,7.134,1.167,"","","","","","offchain"
+"merkle_generation",500,10,20.833,15.082,40.492,7.116,"","","","","","offchain"
+"merkle_generation",1000,10,29.495,27.02,35.611,2.357,"","","","","","offchain"
+"merkle_proof",50,50,0.0344,"",0.2749,"",0.1474,100,50,50,100,"offchain"
+"merkle_proof",100,100,0.0792,"",4.7722,"",0.1291,100,100,100,100,"offchain"
+"merkle_proof",500,500,0.0463,"",3.3284,"",0.1631,100,500,500,100,"offchain"
+"merkle_proof",1000,1000,0.0529,"",4.1212,"",0.2234,100,1000,1000,100,"offchain"
+"onchain_proof_verification_view",1000,100,"","","","",1.106,100,100,100,100,"real_evm_call"

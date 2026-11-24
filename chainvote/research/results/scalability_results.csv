@@ -1,0 +1,5 @@
+voters,votes_attempted,votes_succeeded,votes_failed,total_vote_time_ms,throughput_tx_per_s,mean_gas_per_vote,max_gas_per_vote,mean_confirm_ms,tally_matches_successes,kind
+50,50,50,0,92.811,538.729,75655,107908,1.821,true,"real_evm_tx_sequential"
+100,100,100,0,173.47,576.469,75377,108637,1.696,true,"real_evm_tx_sequential"
+500,500,500,0,942.103,530.728,76147,110127,1.83,true,"real_evm_tx_sequential"
+1000,1000,1000,0,1925.024,519.474,76793,110900,1.857,true,"real_evm_tx_sequential"
